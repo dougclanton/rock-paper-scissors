@@ -1,0 +1,7 @@
+.playerChoice{
+    display: block;
+    margin: auto;
+    border-radius: 10px;
+    color: grey;
+    background-color: aqua;
+}
