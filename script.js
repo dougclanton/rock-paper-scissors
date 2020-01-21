@@ -1,6 +1,13 @@
 let playerScore = 0;
 let computerScore = 0;
 
+const buttons = document.querySelectorAll('button');
+buttons.forEach((button) => {
+  button.addEventListener('click', (e) => {
+    playerPick(e.target.id);
+  });
+});
+
 function computerPlay(){
     let computerPick = Math.floor(Math.random()*3)+1;
     if(computerPick == 1){
@@ -12,13 +19,13 @@ function computerPlay(){
     }
 }
 
-function playerPick(){
-    if(button.value == 'Rock'){
+function playerPick(pp){
+    if(pp == 'rock'){
         return 'rock';
-    }else if(button.value == 'Paper'){
-        return 'paper'
-    }else if(button.value == 'Scissors'){
-        return 'scissors'
+    }else if(pp == 'paper'){
+        return 'paper';
+    }else if(pp == 'scissors'){
+        return 'scissors';
     }else{
         return 0;
     }
@@ -61,6 +68,7 @@ function playRound(playerSelection, computerSelection){
 }
 
 function game(){
+
     for(let gameCount = 0; gameCount<5; gameCount++){
         let result = playRound(playerPick(),computerPlay());
         if(result == "You win!"){
@@ -82,5 +90,3 @@ function game(){
         document.getElementById("playerScore").value = computerScore;
     }
 }
-
-game();
