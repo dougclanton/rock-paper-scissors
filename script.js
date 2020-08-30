@@ -1,12 +1,10 @@
 let playerScore = 0;
 let computerScore = 0;
 
-const buttons = document.querySelectorAll('button');
-buttons.forEach((button) => {
-  button.addEventListener('click', (e) => {
-    playerPick(e.target.id);
-  });
-});
+document.getElementById("rock").addEventListener("click", () => { game('rock');});
+document.getElementById("paper").addEventListener("click", () => { game('paper');});
+document.getElementById("scissors").addEventListener("click", () => { game('scissors');});
+
 
 function computerPlay(){
     let computerPick = Math.floor(Math.random()*3)+1;
@@ -16,18 +14,6 @@ function computerPlay(){
         return 'paper';
     }else{
         return 'scissors';
-    }
-}
-
-function playerPick(pp){
-    if(pp == 'rock'){
-        return 'rock';
-    }else if(pp == 'paper'){
-        return 'paper';
-    }else if(pp == 'scissors'){
-        return 'scissors';
-    }else{
-        return 0;
     }
 }
 
@@ -67,18 +53,15 @@ function playRound(playerSelection, computerSelection){
     }  
 }
 
-function game(){
+function game(playerPick){
 
-    for(let gameCount = 0; gameCount<5; gameCount++){
-        let result = playRound(playerPick(),computerPlay());
+        let result = playRound(playerPick,computerPlay());
         if(result == "You win!"){
             alert("Win!");
-            console.log(playerScore);
-            console.log(computerScore);
+            playerScore++
         }else if(result == "You lose!"){
             alert("Loss!");
-            console.log(playerScore);
-            console.log(computerScore);
+            computerScore++
         }else if(result == "It\'s a tie!"){
             alert("Tie!");
             console.log(playerScore);
@@ -87,6 +70,6 @@ function game(){
             alert("error");
         }
         document.getElementById("playerScore").value = playerScore;
-        document.getElementById("playerScore").value = computerScore;
-    }
+        document.getElementById("computerScore").value = computerScore;
+
 }

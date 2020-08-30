@@ -1,7 +1,23 @@
+h1{
+    text-align: center;
+}
+h3{
+    text-align: center;
+}
+
 .playerChoice{
     display: block;
     margin: auto;
+    width: 200px;
     border-radius: 10px;
     color: grey;
-    background-color: aqua;
+}
+
+.scoreboard{
+    display: block;
+    margin: auto;
+    width: 300px;
+    height: 500px;
+    border-radius: 10px;
+    color: grey;
 }
